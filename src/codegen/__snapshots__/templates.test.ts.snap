@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`starter templates > snapshot: GET template output is stable 1`] = `
+"const express = require('express')
+const app = express()
+
+app.use(express.json()) // parse JSON request bodies
+// req = incoming request (url, body, headers)
+// res = your response object (status, json, send)
+
+// [block:handler-1]
+// Handler: getHandler — your logic
+async function getHandler(req, res, next) {
+  // fetch or compute your data here
+}
+
+// [block:route-1]
+// Route: listens for GET /api
+app.get('/api', getHandler, (req, res) => {
+  // [block:response-1]
+  // Response: sends 200 back to the client
+  res.status(200).json({ "message": "hello" })
+})
+
+app.listen(3000, () => {
+  console.log('Server running on http://localhost:3000')
+})
+
+// -- RUN IT --------------------------------
+// npm install && node server.js
+// Test: curl http://localhost:3000[path]"
+`;
